@@ -1,9 +1,9 @@
-var characters = ["Wolverine", "Gambit", "Magneto", "Professor X"]
+var characters = ["Wolverine", "Gambit", "Magneto", "Professor X"];
 
-$("li").on("click", function() {
+$("ul").on("click", "li", function() {
       var label = $(this).attr("data-label");
       var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-        label + "&api_key=dc6zaTOxFJmzC&limit=10";
+        label + "&api_key=dc6zaTOxFJmzC&limit=15";
 
       $.ajax({
           url: queryURL,
@@ -25,12 +25,12 @@ $("li").on("click", function() {
             gifDiv.prepend(p);
             gifDiv.prepend(personImage);
 
-            $("#gif-dump").append(gifDiv);
+            $("#gif-dump").prepend(gifDiv);
           }
         });
     });
 
-function renderButtons() {
+	function renderButtons() {
 
         // Deleting the movies prior to adding new movies
         // (this is necessary otherwise you will have repeat buttons)
